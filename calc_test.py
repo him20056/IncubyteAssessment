@@ -24,6 +24,10 @@ class TestCalc(unittest.TestCase):
     def test_Add_Raises_ValueError(self):
         # It should raise ValueError as '2,\n3' is stated Invalid in assignment
         self.assertRaises(ValueError, self.calc.Add, '1,2,\n3')
+    
+    def test_Add_Raises_Exception_Negative_numbers(self):
+        # It should raise Exception in case of negative numbers
+        self.assertRaises(Exception, self.calc.Add, '-1,2')
 
 if __name__ == '__main__':
     unittest.main()

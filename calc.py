@@ -13,9 +13,16 @@ class Calc():
         else:
             nums = self.GetNumbers(numbers)
             sum = 0
+            negative = []
             for n in nums:
-                sum = sum + int(n)
-            return sum
+                if int(n) < 0:
+                    negative.append(n)
+                elif negative == []:
+                    sum = sum + int(n)
+            if negative != []:
+                raise Exception("negatives not allowed " + ','.join(negative))
+            else:
+                return sum
     
     def GetNumbers(self, nums: str):
         if nums.startswith('//'):
