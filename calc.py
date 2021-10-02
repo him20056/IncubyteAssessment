@@ -1,3 +1,4 @@
+import re
 
 
 class Calc():
@@ -9,3 +10,9 @@ class Calc():
 
         if numbers == "":
             return 0
+        else:
+            nums = re.split('\n|,', numbers)
+            sum = 0
+            for n in nums:
+                sum = sum + int(n)
+            return sum
